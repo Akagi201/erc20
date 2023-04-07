@@ -15,7 +15,7 @@ lint:
 
 .PHONY: test # Run tests
 test:
-	forge test -vvv
+	forge test -vvvv
 
 .PHONY: update # Update Dependencies
 update:
@@ -24,6 +24,10 @@ update:
 .PHONY: deploy # Deploy contract
 deploy:
 	forge create --rpc-url "https://rpc.sepolia.org" --private-key ${PRIVATE_KEY} ./src/FeeToken.sol:FeeToken --constructor-args "FeeToken" "FT" 18 1000000 --verify --etherscan-api-key ${ETHERSCAN_KEY} --verifier etherscan
+
+.PHONY: deploy-base # Deploy contract
+deploy-base:
+	forge create --rpc-url "https://goerli.base.org" --private-key ${PRIVATE_KEY} ./src/FeeToken.sol:FeeToken --constructor-args "FeeToken" "FT" 18 1000000 --verify --etherscan-api-key ${ETHERSCAN_KEY} --verifier etherscan
 
 .PHONY: clean # Clean build files
 clean:

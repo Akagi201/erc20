@@ -23,7 +23,7 @@ update:
 
 .PHONY: deploy # Deploy contract
 deploy:
-	forge create --rpc-url "https://rpc.sepolia.org" --private-key ${PRIVATE_KEY} ./src/FeeToken.sol:FeeToken --verify --etherscan-api-key ${ETHERSCAN_KEY} --verifier etherscan
+	forge create --rpc-url "https://rpc.sepolia.org" --private-key ${PRIVATE_KEY} ./src/FeeToken.sol:FeeToken --constructor-args "FeeToken" "FT" 18 1000000 --verify --etherscan-api-key ${ETHERSCAN_KEY} --verifier etherscan
 
 .PHONY: clean # Clean build files
 clean:

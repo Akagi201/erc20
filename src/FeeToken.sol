@@ -15,9 +15,9 @@ contract FeeToken is ERC20, Ownable {
     event Mint(address indexed to, uint256 amount);
     event Burn(address indexed from, uint256 amount);
 
-    constructor(string memory name, string memory symbol, uint8 decimals, uint256 totalSupply) ERC20(name, symbol) {
-        _decimals = decimals;
-        _totalSupply = totalSupply * (10 ** decimals);
+    constructor(string memory name, string memory symbol, uint8 decimals_, uint256 totalSupply_) ERC20(name, symbol) {
+        _decimals = decimals_;
+        _totalSupply = totalSupply_ * (10 ** decimals_);
         _mint(msg.sender, _totalSupply);
     }
 
@@ -32,12 +32,14 @@ contract FeeToken is ERC20, Ownable {
     /// 只有被授权的 minter 才能增发代币到指定地址
     function mint(address to, uint256 amount) public onlyMinter {
         _mint(to, amount);
+        _totalSupply += amount;
         emit Mint(to, amount);
     }
 
     /// 允许持有人销毁自己的代币
     function burn(uint256 amount) public {
         _burn(msg.sender, amount);
+        _totalSupply -= amount;
         emit Burn(msg.sender, amount);
     }
 
@@ -63,6 +65,7 @@ contract FeeToken is ERC20, Ownable {
         require(burnAmount <= amount, "Burn amount must be less than or equal to the transfer amount");
         uint256 transferAmount = amount - burnAmount;
         _burn(msg.sender, burnAmount);
+        _totalSupply -= burnAmount;
         _transfer(msg.sender, recipient, transferAmount);
         return true;
     }

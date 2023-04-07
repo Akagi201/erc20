@@ -16,8 +16,7 @@ contract DeployScript is CREATE3Script {
 
         c = Counter(
             create3.deploy(
-                getCreate3ContractSalt("Counter"),
-                bytes.concat(type(Counter).creationCode, abi.encode(param))
+                getCreate3ContractSalt("Counter"), bytes.concat(type(Counter).creationCode, abi.encode(param))
             )
         );
 

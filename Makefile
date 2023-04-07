@@ -15,7 +15,7 @@ lint:
 
 .PHONY: test # Run tests
 test:
-	forge test -vvv
+	forge test -vvvv
 
 .PHONY: update # Update Dependencies
 update:

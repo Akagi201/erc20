@@ -82,7 +82,9 @@ Traces:
 Test result: ok. 5 passed; 0 failed; finished in 725.25µs
 ```
 
-## Deploy to sepolia
+## Deploy
+
+sepolia
 
 ```sh
 [⠆] Compiling...
@@ -106,6 +108,37 @@ Submitted contract for verification:
         GUID: `fyuwai7cjrswgrntnbcaqr5kvbkbj9gdvdejsxx2yvbycjmrb3`
         URL:
         https://sepolia.etherscan.io/address/0xe91bed8fb432d94fc13a89815fd0ccc3ff6e8208
+Contract verification status:
+Response: `NOTOK`
+Details: `Pending in queue`
+Contract verification status:
+Response: `OK`
+Details: `Pass - Verified`
+Contract successfully verified
+```
+
+goerli
+
+```sh
+[⠆] Compiling...
+No files changed, compilation skipped
+Deployer: 0x258ce53268BEaA9BA97fA6b7790d7555ae4044fc
+Deployed to: 0x31D20C015AFDF3909Bc2E1369909D041d2c323BB
+Transaction hash: 0x5431d23dde164057a4656f813afcd141ceb6b22dc90c71cd3e5651c64e393d3a
+Starting contract verification...
+Waiting for etherscan to detect contract deployment...
+Start verifying contract `0x31d20c015afdf3909bc2e1369909d041d2c323bb` deployed on goerli
+
+Submitting verification for [src/FeeToken.sol:FeeToken] "0x31D20C015AFDF3909Bc2E1369909D041d2c323BB".
+
+Submitting verification for [src/FeeToken.sol:FeeToken] "0x31D20C015AFDF3909Bc2E1369909D041d2c323BB".
+
+Submitting verification for [src/FeeToken.sol:FeeToken] "0x31D20C015AFDF3909Bc2E1369909D041d2c323BB".
+Submitted contract for verification:
+        Response: `OK`
+        GUID: `9zy4pwepzvcfzm8qcyifkeippqakrebr92hv3uh7vfhvdij81w`
+        URL:
+        https://goerli.etherscan.io/address/0x31d20c015afdf3909bc2e1369909d041d2c323bb
 Contract verification status:
 Response: `NOTOK`
 Details: `Pending in queue`

@@ -25,6 +25,10 @@ update:
 deploy:
 	forge create --rpc-url "https://rpc.sepolia.org" --private-key ${PRIVATE_KEY} ./src/FeeToken.sol:FeeToken --constructor-args "FeeToken" "FT" 18 1000000 --verify --etherscan-api-key ${ETHERSCAN_KEY} --verifier etherscan
 
+.PHONY: deploy-goerli # Deploy contract
+deploy-goerli:
+	forge create --rpc-url "https://rpc.ankr.com/eth_goerli" --private-key ${PRIVATE_KEY} ./src/FeeToken.sol:FeeToken --constructor-args "FeeToken" "FT" 18 1000000 --verify --etherscan-api-key ${ETHERSCAN_KEY} --verifier etherscan
+
 .PHONY: deploy-base # Deploy contract
 deploy-base:
 	forge create --rpc-url "https://goerli.base.org" --private-key ${PRIVATE_KEY} ./src/FeeToken.sol:FeeToken --constructor-args "FeeToken" "FT" 18 1000000 --verify --etherscan-api-key ${ETHERSCAN_KEY} --verifier etherscan
